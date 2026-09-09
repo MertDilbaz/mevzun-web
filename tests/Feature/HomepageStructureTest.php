@@ -30,7 +30,8 @@ class HomepageStructureTest extends TestCase
         $response->assertStatus(200);
 
         $response->assertSee('AVUKATLAR İÇİN');
-        $response->assertSee('Hukuki çalışmalarınız için tek bir çalışma alanı.');
+        $response->assertSee('Hukuki çalışmalarınız için');
+        $response->assertSee('tek bir çalışma alanı.');
         $response->assertSee('02 / YAPAY ZEKÂ');
         $response->assertSee('Yapay zekâ, dava bağlamını anlar.');
         $response->assertSee('Tüm dosyalar tek yerde');
