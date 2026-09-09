@@ -6,34 +6,48 @@
 
 @theme {
     --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* Base Surfaces */
     --color-bg-page: #ffffff;
     --color-bg-subtle: #f7f8fa;
     --color-bg-muted: #f2f4f6;
     --color-surface: #ffffff;
     --color-surface-hover: #f5f8fa;
+
+    /* Typography Colors */
     --color-text-primary: #172033;
     --color-text-secondary: #596579;
     --color-text-muted: #8791a0;
     --color-text-inverse: #f5f7f9;
+
+    /* Borders */
     --color-border-subtle: #e7e9ec;
     --color-border-default: #dfe3e7;
     --color-border-strong: #cdd2d8;
     --color-border-dark-subtle: #252c31;
     --color-border-dark-default: #30383e;
+
+    /* Brand Blue */
     --color-blue-primary: #2674c8;
     --color-blue-hover: #1f66b5;
     --color-blue-active: #19579b;
     --color-blue-soft: #eaf3fb;
     --color-blue-soft-hover: #deedf9;
     --color-blue-text: #216bb9;
+
+    /* AI Dark Palette */
     --color-ai-bg: #11171b;
     --color-ai-surface: #171e23;
     --color-ai-border: #2b343b;
     --color-ai-text-primary: #f5f7f8;
     --color-ai-text-secondary: #a9b2ba;
+
+    /* Radius: Strictly 0 - 4px (6px exception) */
     --radius-xs: 2px;
     --radius-sm: 4px;
     --radius-md: 6px;
+
+    /* Containers */
     --width-standard: 1280px;
     --width-product-wide: 1440px;
     --width-text-measure: 760px;
@@ -45,27 +59,32 @@
     --bg-muted: #f2f4f6;
     --surface: #ffffff;
     --surface-hover: #f5f8fa;
+
     --text-primary: #172033;
     --text-secondary: #596579;
     --text-muted: #8791a0;
     --text-inverse: #f5f7f9;
+
     --border-subtle: #e7e9ec;
     --border-default: #dfe3e7;
     --border-strong: #cdd2d8;
     --border-dark-subtle: #252c31;
     --border-dark-default: #30383e;
+
     --blue-primary: #2674c8;
     --blue-hover: #1f66b5;
     --blue-active: #19579b;
     --blue-soft: #eaf3fb;
     --blue-soft-hover: #deedf9;
     --blue-text: #216bb9;
+
     --ai-bg: #11171b;
     --ai-surface: #171e23;
     --ai-border: #2b343b;
     --ai-text-primary: #f5f7f8;
     --ai-text-secondary: #a9b2ba;
-    --page-gutter: 16px;
+
+    /* Motion Tokens (LOCKED ADIM 11.3 & 11.4) */
     --motion-fast: 140ms;
     --motion-base: 200ms;
     --motion-slow: 320ms;
@@ -74,10 +93,12 @@
     --ease-mzv: cubic-bezier(0.2, 0, 0, 1);
 }
 
+/* HARD RULE (LOCKED §2.3, §2.25): box-shadow none everywhere */
 *, *::before, *::after {
     box-shadow: none !important;
 }
 
+/* Base Body Styles */
 html {
     scroll-behavior: smooth;
     color-scheme: light;
@@ -90,36 +111,28 @@ body {
     background-color: var(--bg-page);
     color: var(--text-primary);
     font-family: var(--font-sans);
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
 }
 
-/* 1280px/1440px are real content widths; gutters live outside those axes. */
-.mz-container,
-.mz-container-wide {
-    width: calc(100% - (var(--page-gutter) * 2));
-    margin-inline: auto;
+/* Section scroll offset for sticky navbar */
+section[id] {
+    scroll-margin-top: 88px;
 }
 
-.mz-container { max-width: 1280px; }
-.mz-container-wide { max-width: 1440px; }
-
-@media (min-width: 640px) { :root { --page-gutter: 20px; } }
-@media (min-width: 768px) { :root { --page-gutter: 24px; } }
-@media (min-width: 1024px) { :root { --page-gutter: 32px; } }
-@media (min-width: 1440px) { :root { --page-gutter: 40px; } }
-
-section[id] { scroll-margin-top: 88px; }
-
+/* Focus Visible outline (LOCKED §12.15) */
 :focus-visible {
     outline: 2px solid var(--blue-primary) !important;
     outline-offset: 2px !important;
 }
 
+/* Section Reveal system (LOCKED §11.8: opacity 0->1, translateY 10px->0, 380ms) */
 [data-reveal] {
     opacity: 0;
     transform: translateY(10px);
-    transition: opacity 380ms cubic-bezier(0.22, 1, 0.36, 1), transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition: opacity 380ms cubic-bezier(0.22, 1, 0.36, 1),
+                transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 [data-reveal].is-revealed {
@@ -127,6 +140,7 @@ section[id] { scroll-margin-top: 88px; }
     transform: translateY(0);
 }
 
+/* Reduced Motion Support (LOCKED §11.16 & §12.10) */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
