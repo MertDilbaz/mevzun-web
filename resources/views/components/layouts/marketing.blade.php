@@ -22,8 +22,8 @@
     <meta name="twitter:description" content="{{ $pageDescription }}">
 
     <link rel="canonical" href="{{ url()->current() }}">
-    <link rel="icon" type="image/png" media="(prefers-color-scheme: light)" href="{{ asset('images/brand/mevzun-icon-light-128.png') }}">
-    <link rel="icon" type="image/png" media="(prefers-color-scheme: dark)" href="{{ asset('images/brand/mevzun-icon-dark-128.png') }}">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: light)" href="/images/brand/mevzun-icon-dark-128.png">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: dark)" href="/images/brand/mevzun-icon-light-128.png">
 
     <script>document.documentElement.classList.add('js');</script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
