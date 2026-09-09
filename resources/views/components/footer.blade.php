@@ -2,7 +2,7 @@
     <div class="mx-auto max-w-[1360px] px-5 py-8 sm:px-8 lg:px-10 lg:py-9">
         <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div class="flex flex-col items-start">
-                <a href="#hero" class="rounded-[2px] focus-visible:outline-2 focus-visible:outline-[#2674c8] focus-visible:outline-offset-3">
+                <a href="#hero" class="rounded-[2px] focus-visible:outline-2 focus-visible:outline-[#2674c8] focus-visible:outline-offset-2">
                     <x-logo size="28" />
                 </a>
                 <p class="mt-3 max-w-[300px] text-[12px] leading-[1.55] text-[#8791a0]">

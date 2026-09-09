@@ -16,7 +16,7 @@
             </div>
 
             <div
-                class="flex w-full flex-col rounded-[4px] border border-[#dfe3e7] bg-white p-6 transition-[border-color,transform] duration-180 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-px hover:border-[#b9c7d5] sm:p-7 lg:col-span-4"
+                class="flex w-full flex-col rounded-[4px] border border-[#dfe3e7] bg-white p-6 transition-[border-color,transform] duration-200 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-px hover:border-[#b9c7d5] sm:p-7 lg:col-span-4"
                 data-reveal
                 data-reveal-delay="55"
             >
@@ -61,7 +61,7 @@
 
             <div
                 id="early-access"
-                class="flex w-full scroll-mt-28 flex-col rounded-[4px] border border-[#dfe3e7] bg-white p-6 transition-[border-color] duration-180 hover:border-[#c8d1da] sm:p-7 lg:col-span-4"
+                class="flex w-full scroll-mt-28 flex-col rounded-[4px] border border-[#dfe3e7] bg-white p-6 transition-[border-color] duration-200 hover:border-[#c8d1da] sm:p-7 lg:col-span-4"
                 data-reveal
                 data-reveal-delay="110"
             >

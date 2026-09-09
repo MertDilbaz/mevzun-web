@@ -10,7 +10,7 @@
     >
         <a
             href="#hero"
-            class="inline-flex items-center rounded-[2px] focus-visible:outline-2 focus-visible:outline-[#2674c8] focus-visible:outline-offset-3"
+            class="inline-flex items-center rounded-[2px] focus-visible:outline-2 focus-visible:outline-[#2674c8] focus-visible:outline-offset-2"
             aria-label="Mevzun ana sayfa"
         >
             <x-logo size="30" />
@@ -55,10 +55,10 @@
         x-cloak
         @click.outside="mobileMenuOpen = false"
         @keydown.escape.window="mobileMenuOpen = false"
-        x-transition:enter="transition ease-out duration-180"
+        x-transition:enter="transition ease-out duration-200"
         x-transition:enter-start="opacity-0 -translate-y-1"
         x-transition:enter-end="opacity-100 translate-y-0"
-        x-transition:leave="transition ease-in duration-140"
+        x-transition:leave="transition ease-in duration-150"
         x-transition:leave-start="opacity-100 translate-y-0"
         x-transition:leave-end="opacity-0 -translate-y-1"
         class="border-b border-[#dfe3e7] bg-white px-5 py-4 sm:px-8 lg:hidden"
