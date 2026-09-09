@@ -5,18 +5,18 @@
 ])
 
 @php
-    $isDark = $variant === 'dark';
-    $icon = $isDark
-        ? 'images/brand/mevzun-icon-dark-128.png'
-        : 'images/brand/mevzun-icon-light-128.png';
+    $isDarkSurface = $variant === 'dark';
+    $icon = $isDarkSurface
+        ? '/images/brand/mevzun-icon-light-128.png'
+        : '/images/brand/mevzun-icon-dark-128.png';
 
-    $brandText = $isDark ? 'text-[#f5f7f8]' : 'text-[#172033]';
-    $descriptorText = $isDark ? 'text-[#a9b2ba]' : 'text-[#8791a0]';
+    $brandText = $isDarkSurface ? 'text-[#f5f7f8]' : 'text-[#172033]';
+    $descriptorText = $isDarkSurface ? 'text-[#a9b2ba]' : 'text-[#8791a0]';
 @endphp
 
 <span {{ $attributes->merge(['class' => 'inline-flex items-center gap-2.5 select-none']) }}>
     <img
-        src="{{ asset($icon) }}"
+        src="{{ $icon }}"
         alt=""
         width="{{ $size }}"
         height="{{ $size }}"
