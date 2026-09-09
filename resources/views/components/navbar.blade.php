@@ -4,50 +4,52 @@
     class="sticky top-0 z-40 w-full border-b border-[#dfe3e7] bg-white transition-[height,background-color,border-color] duration-200 ease-[cubic-bezier(0.2,0,0,1)]"
     :class="scrolled ? 'h-[64px] border-[#d6dbe0]' : 'h-[72px]'"
 >
-    <nav
-        class="relative mx-auto flex h-full max-w-[1360px] items-center justify-between px-5 sm:px-8 lg:px-10"
-        aria-label="Ana navigasyon"
-    >
-        <a
-            href="#hero"
-            class="inline-flex items-center rounded-[2px] focus-visible:outline-2 focus-visible:outline-[#2674c8] focus-visible:outline-offset-2"
-            aria-label="Mevzun ana sayfa"
+    <div class="h-full px-5 sm:px-8 lg:px-10">
+        <nav
+            class="relative mx-auto flex h-full w-full max-w-[1440px] items-center justify-between"
+            aria-label="Ana navigasyon"
         >
-            <x-logo size="30" />
-        </a>
+            <a
+                href="#hero"
+                class="inline-flex items-center rounded-[2px] focus-visible:outline-2 focus-visible:outline-[#2674c8] focus-visible:outline-offset-2"
+                aria-label="Mevzun ana sayfa"
+            >
+                <x-logo size="32" />
+            </a>
 
-        <div class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 lg:flex">
-            <a href="#hero" class="mz-nav-link">Ürün</a>
-            <a href="#uyap" class="mz-nav-link">UYAP</a>
-            <a href="#ai" class="mz-nav-link">Yapay Zekâ</a>
-            <a href="#pricing" class="mz-nav-link">Fiyatlandırma</a>
-            <a href="#footer" class="mz-nav-link">İletişim</a>
-        </div>
+            <div class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 lg:flex">
+                <a href="#hero" class="mz-nav-link">Ürün</a>
+                <a href="#uyap" class="mz-nav-link">UYAP</a>
+                <a href="#ai" class="mz-nav-link">Yapay Zekâ</a>
+                <a href="#pricing" class="mz-nav-link">Fiyatlandırma</a>
+                <a href="#footer" class="mz-nav-link">İletişim</a>
+            </div>
 
-        <a
-            href="#early-access"
-            class="group hidden h-10 items-center justify-center gap-2 rounded-[4px] border border-transparent bg-[#2674c8] px-4 text-[14px] font-medium text-white transition-[background-color,transform] duration-150 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-px hover:bg-[#1f66b5] active:translate-y-0 active:bg-[#19579b] lg:inline-flex"
-        >
-            <span>Mevzun'u deneyin</span>
-            <x-icon name="arrow-right" size="16" class="transition-transform duration-150 group-hover:translate-x-0.5" />
-        </a>
+            <a
+                href="#early-access"
+                class="group hidden h-10 items-center justify-center gap-2 rounded-[4px] border border-transparent bg-[#2674c8] px-[18px] text-[14px] font-medium text-white transition-[background-color,transform] duration-150 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-px hover:bg-[#1f66b5] active:translate-y-0 active:bg-[#19579b] lg:inline-flex"
+            >
+                <span>Mevzun'u deneyin</span>
+                <x-icon name="arrow-right" size="16" class="transition-transform duration-150 group-hover:translate-x-0.5" />
+            </a>
 
-        <button
-            type="button"
-            @click="mobileMenuOpen = !mobileMenuOpen"
-            class="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-[2px] text-[#172033] transition-colors duration-150 hover:text-[#2674c8] lg:hidden"
-            aria-label="Menüyü aç veya kapat"
-            :aria-expanded="mobileMenuOpen.toString()"
-            aria-controls="mobile-menu"
-        >
-            <template x-if="!mobileMenuOpen">
-                <x-icon name="menu" size="24" />
-            </template>
-            <template x-if="mobileMenuOpen">
-                <x-icon name="close" size="24" />
-            </template>
-        </button>
-    </nav>
+            <button
+                type="button"
+                @click="mobileMenuOpen = !mobileMenuOpen"
+                class="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-[2px] text-[#172033] transition-colors duration-150 hover:text-[#2674c8] lg:hidden"
+                aria-label="Menüyü aç veya kapat"
+                :aria-expanded="mobileMenuOpen.toString()"
+                aria-controls="mobile-menu"
+            >
+                <template x-if="!mobileMenuOpen">
+                    <x-icon name="menu" size="24" />
+                </template>
+                <template x-if="mobileMenuOpen">
+                    <x-icon name="close" size="24" />
+                </template>
+            </button>
+        </nav>
+    </div>
 
     <div
         id="mobile-menu"
@@ -63,7 +65,7 @@
         x-transition:leave-end="opacity-0 -translate-y-1"
         class="border-b border-[#dfe3e7] bg-white px-5 py-4 sm:px-8 lg:hidden"
     >
-        <div class="mx-auto flex max-w-[1280px] flex-col">
+        <div class="mx-auto flex max-w-[1440px] flex-col">
             <a href="#hero" @click="mobileMenuOpen = false" class="mz-mobile-nav-link">Ürün</a>
             <a href="#uyap" @click="mobileMenuOpen = false" class="mz-mobile-nav-link">UYAP</a>
             <a href="#ai" @click="mobileMenuOpen = false" class="mz-mobile-nav-link">Yapay Zekâ</a>
