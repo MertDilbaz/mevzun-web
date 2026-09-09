@@ -18,6 +18,8 @@
     <meta name="twitter:description" content="Avukatların UYAP dosyalarını, günlük çalışma düzenini ve yapay zekâ destekli hukuki işlerini tek masaüstü çalışma alanında birleştiren profesyonel hukuk yazılımı.">
 
     <link rel="canonical" href="{{ url('/') }}">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: light)" href="{{ asset('images/brand/mevzun-icon-light-128.png') }}">
+    <link rel="icon" type="image/png" media="(prefers-color-scheme: dark)" href="{{ asset('images/brand/mevzun-icon-dark-128.png') }}">
 
     <!-- Vite Assets -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
