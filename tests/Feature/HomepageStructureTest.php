@@ -6,69 +6,58 @@ use Tests\TestCase;
 
 class HomepageStructureTest extends TestCase
 {
-    public function test_homepage_has_all_required_section_ids(): void
+    public function test_homepage_has_v2_section_structure(): void
     {
         $response = $this->get('/');
         $response->assertStatus(200);
 
         $response->assertSee('id="hero"', false);
-        $response->assertSee('id="product"', false);
-        $response->assertSee('id="uyap"', false);
         $response->assertSee('id="ai"', false);
-        $response->assertSee('id="work-tools"', false);
+        $response->assertSee('id="features"', false);
+        $response->assertSee('id="uyap"', false);
         $response->assertSee('id="pricing"', false);
         $response->assertSee('id="early-access"', false);
         $response->assertSee('id="footer"', false);
         $response->assertSee('id="main-content"', false);
+
+        $response->assertDontSee('id="work-tools"', false);
+        $response->assertDontSee('id="product"', false);
     }
 
-    public function test_homepage_has_exact_locked_headlines(): void
-    {
-        $response = $this->get('/');
-        $response->assertStatus(200);
-
-        // H1 (LOCKED §4.7)
-        $response->assertSee('Hukuki çalışmalarınız için tek bir çalışma alanı.');
-
-        // Value Headline (LOCKED §5.5)
-        $response->assertSee("Dava dosyanız UYAP'ta, notlarınız Excel'de, takviminiz başka yerde olmak zorunda değil.", false);
-
-        // UYAP Headline (LOCKED §6.7)
-        $response->assertSee('UYAP dosyalarınız çalışma alanınızda.');
-
-        // AI Headline (LOCKED §7.3)
-        $response->assertSee('Yapay zekâ, dava bağlamını bilir.');
-
-        // Takvim Headline (LOCKED §8.7)
-        $response->assertSee('Gününüzü, dosyalarınızla birlikte yönetin.');
-
-        // Workspace Headline (LOCKED §8.11)
-        $response->assertSee('Verilerinizi size özel şekilde yönetin.');
-
-        // Pricing Headline (LOCKED §9.5)
-        $response->assertSee('Şeffaf, sade, tek paket.');
-    }
-
-    public function test_homepage_has_exact_locked_eyebrows_and_labels(): void
+    public function test_homepage_has_approved_v2_content(): void
     {
         $response = $this->get('/');
         $response->assertStatus(200);
 
         $response->assertSee('AVUKATLAR İÇİN');
-        $response->assertSee('ÇALIŞMA DÜZENİ');
-        $response->assertSee('01 / UYAP ENTEGRASYONU');
+        $response->assertSee('Hukuki çalışmalarınız için tek bir çalışma alanı.');
         $response->assertSee('02 / YAPAY ZEKÂ');
-        $response->assertSee('03 / TAKVİM VE GÖREV YÖNETİMİ');
-        $response->assertSee('04 / YEREL ÇALIŞMA ALANI');
+        $response->assertSee('Yapay zekâ, dava bağlamını anlar.');
+        $response->assertSee('Tüm dosyalar tek yerde');
+        $response->assertSee('Güvenli ve gizli');
+        $response->assertSee('Daha verimli çalışın');
+        $response->assertSee('Her yerden erişin');
         $response->assertSee('FİYATLANDIRMA');
-        $response->assertSee('ERKEN ERİŞİM');
+        $response->assertSee('Şeffaf, sade, tek paket.');
+        $response->assertSee('Mevzun Pro');
+        $response->assertSee('₺1.500');
+    }
+
+    public function test_homepage_uses_one_h1_and_removes_old_v1_copy(): void
+    {
+        $content = $this->get('/')->getContent();
+
+        $this->assertSame(1, substr_count($content, '<h1'));
+        $this->assertStringNotContainsString('Nasıl çalışır?', $content);
+        $this->assertStringNotContainsString("Dava dosyanız UYAP'ta, notlarınız Excel'de", $content);
+        $this->assertStringNotContainsString('Gününüzü, dosyalarınızla birlikte yönetin.', $content);
+        $this->assertStringNotContainsString('Verilerinizi size özel şekilde yönetin.', $content);
     }
 
     public function test_homepage_has_no_ai_slop_or_banned_patterns(): void
     {
         $content = $this->get('/')->getContent();
 
-        // Banned buzzwords
         $this->assertStringNotContainsString('sınırsız AI', $content);
         $this->assertStringNotContainsString('Most Popular', $content);
         $this->assertStringNotContainsString('En Popüler', $content);
@@ -79,10 +68,13 @@ class HomepageStructureTest extends TestCase
         $this->assertStringNotContainsString('UYAP’a hiç dönmeden', $content);
     }
 
-    public function test_homepage_has_accessible_skip_link(): void
+    public function test_homepage_has_accessible_skip_link_and_product_asset_contract(): void
     {
         $response = $this->get('/');
+
         $response->assertSee('Ana içeriğe geç');
         $response->assertSee('href="#main-content"', false);
+        $response->assertSee('images/product/home-dark.webp', false);
+        $response->assertSee('images/product/ai-dark.webp', false);
     }
 }

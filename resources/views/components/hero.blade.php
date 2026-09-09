@@ -1,71 +1,79 @@
-<section id="hero" class="w-full bg-white pt-12 pb-16 lg:pt-20 lg:pb-28">
-    <div class="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-10" data-reveal>
-        <!-- Split Hero Grid: 5 col text / 7 col product visual (LOCKED §4.2) -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-            
-            <!-- Left: Content (5 cols) -->
-            <div class="lg:col-span-5 flex flex-col items-start">
-                
-                <!-- Eyebrow (LOCKED §4.6) -->
-                <span class="text-[12px] font-semibold text-[#2674c8] uppercase tracking-[0.12em] mb-4 select-none">
+<section id="hero" class="flex w-full items-center bg-white py-14 lg:min-h-[calc(100svh-72px)] lg:py-16">
+    <div class="mx-auto w-full max-w-[1360px] px-5 sm:px-8 lg:px-10">
+        <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-12 xl:gap-16">
+            <div class="flex flex-col items-start lg:col-span-5">
+                <span
+                    class="mb-4 select-none text-[12px] font-semibold uppercase tracking-[0.14em] text-[#2674c8]"
+                    data-reveal
+                    data-reveal-delay="0"
+                >
                     AVUKATLAR İÇİN
                 </span>
 
-                <!-- H1 (LOCKED §4.7) -->
-                <h1 class="text-[36px] sm:text-[46px] lg:text-[56px] font-semibold text-[#172033] tracking-[-0.02em] leading-[1.08] mb-6 max-w-[560px]">
+                <h1
+                    class="mb-6 max-w-[580px] text-[38px] font-semibold leading-[1.06] tracking-[-0.035em] text-[#172033] sm:text-[48px] lg:text-[58px] xl:text-[62px]"
+                    data-reveal
+                    data-reveal-delay="45"
+                >
                     Hukuki çalışmalarınız için tek bir çalışma alanı.
                 </h1>
 
-                <!-- Body copy (LOCKED §4.8) -->
-                <p class="text-[17px] sm:text-[18px] text-[#596579] font-normal leading-[1.6] mb-8 max-w-[520px]">
-                    UYAP dosyalarınızı yönetin, davalarınız üzerinde çalışın, takviminizi takip edin ve yapay zekâ desteğiyle hukuki işlerinizi hızlandırın.
+                <p
+                    class="mb-8 max-w-[540px] text-[17px] font-normal leading-[1.62] text-[#596579] sm:text-[18px]"
+                    data-reveal
+                    data-reveal-delay="90"
+                >
+                    UYAP dosyalarınızı yönetin, davalarınız üzerinde çalışın, takviminizi takip edin ve yapay zekâ desteğiyle tüm hukuki iş akışınızı bir araya getirin.
                 </p>
 
-                <!-- CTA Row (LOCKED §4.9) -->
-                <div class="flex flex-wrap items-center gap-4 mb-10 w-full sm:w-auto">
-                    <a href="#product" 
-                       class="inline-flex items-center justify-center h-[48px] px-6 rounded-[4px] bg-[#2674c8] hover:bg-[#1f66b5] active:bg-[#19579b] text-white text-[15px] font-medium border border-transparent transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-[#2674c8] focus-visible:outline-offset-2">
-                        Mevzun'u keşfet
-                    </a>
-                    <a href="#uyap" 
-                       class="inline-flex items-center justify-center h-[48px] px-6 rounded-[4px] bg-transparent hover:bg-[#f7f8fa] text-[#172033] text-[15px] font-medium border border-[#dfe3e7] hover:border-[#cdd2d8] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-[#2674c8] focus-visible:outline-offset-2">
-                        Nasıl çalışır?
-                    </a>
-                </div>
+                <a
+                    href="#ai"
+                    class="group mb-10 inline-flex h-12 items-center justify-center gap-2.5 rounded-[4px] border border-transparent bg-[#2674c8] px-6 text-[15px] font-medium text-white transition-[background-color,transform] duration-150 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-px hover:bg-[#1f66b5] active:translate-y-0 active:bg-[#19579b]"
+                    data-reveal
+                    data-reveal-delay="135"
+                >
+                    Mevzun'u keşfet
+                    <x-icon name="arrow-right" size="16" class="transition-transform duration-150 group-hover:translate-x-0.5" />
+                </a>
 
-                <!-- Mini feature strip (LOCKED §4.10: flat, no cards) -->
-                <div class="pt-6 border-t border-[#e7e9ec] w-full grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-x-6 gap-y-3 text-[13px] font-medium text-[#596579]">
+                <div
+                    class="grid w-full grid-cols-2 gap-x-5 gap-y-4 border-t border-[#e7e9ec] pt-6 text-[12px] font-medium text-[#596579] sm:flex sm:flex-wrap sm:items-center sm:gap-x-6"
+                    data-reveal
+                    data-reveal-delay="180"
+                >
                     <div class="flex items-center gap-2">
                         <x-icon name="link" size="16" class="text-[#2674c8]" />
-                        <span>UYAP Entegrasyonu</span>
+                        <span>UYAP entegrasyonu</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <x-icon name="ai" size="16" class="text-[#2674c8]" />
-                        <span>Yapay Zekâ Desteği</span>
+                        <span>Yapay zekâ desteği</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <x-icon name="shield" size="16" class="text-[#2674c8]" />
-                        <span>Güvenli ve Yerel</span>
+                        <span>Güvenli çalışma alanı</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <x-icon name="folder" size="16" class="text-[#2674c8]" />
-                        <span>Masaüstü Uygulama</span>
+                        <x-icon name="monitor" size="16" class="text-[#2674c8]" />
+                        <span>Masaüstü uygulama</span>
                     </div>
                 </div>
-
             </div>
 
-            <!-- Right: Product Visual (7 cols) (LOCKED §4.11 – §4.13) -->
-            <div class="lg:col-span-7 flex items-center justify-center w-full">
-                <x-product-frame 
+            <div
+                class="flex w-full items-center justify-center lg:col-span-7"
+                data-reveal
+                data-reveal-delay="95"
+            >
+                <x-product-frame
                     src="images/product/home-dark.webp"
-                    alt="Mevzun masaüstü uygulamasında davalar, duruşmalar, görevler ve hızlı erişim panellerinin yer aldığı ana çalışma ekranı."
+                    alt="Mevzun masaüstü uygulamasında duruşmalar, görevler, son güncellenen dosyalar ve hızlı erişim alanlarının bulunduğu Ana Sayfa ekranı."
                     ratio="16/10"
                     :dark="true"
                     :priority="true"
-                    class="w-full max-w-[780px] hover:-translate-y-0.5 transition-transform duration-200 ease-[cubic-bezier(0.2,0,0,1)]" />
+                    class="w-full max-w-[820px] transition-[transform,border-color] duration-200 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:border-[#3a454d]"
+                />
             </div>
-
         </div>
     </div>
 </section>

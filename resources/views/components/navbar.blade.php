@@ -1,73 +1,83 @@
-<header x-data="{ scrolled: false, mobileMenuOpen: false }"
-        x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
-        class="sticky top-0 z-30 w-full bg-white border-b border-[#dfe3e7] transition-[height] duration-200 ease-[cubic-bezier(0.2,0,0,1)]"
-        :class="scrolled ? 'h-[64px]' : 'h-[72px]'">
-    <nav class="max-w-[1280px] h-full mx-auto px-5 sm:px-8 lg:px-10 flex items-center justify-between"
-         aria-label="Ana Navigasyon">
-        
-        <!-- Left: Brand / Logo -->
-        <a href="#hero" class="flex items-center gap-2.5 focus-visible:outline-2 focus-visible:outline-[#2674c8] focus-visible:outline-offset-2">
+<header
+    x-data="{ scrolled: false, mobileMenuOpen: false }"
+    @scroll.window="scrolled = window.scrollY > 52"
+    class="sticky top-0 z-40 w-full border-b border-[#dfe3e7] bg-white transition-[height,background-color,border-color] duration-200 ease-[cubic-bezier(0.2,0,0,1)]"
+    :class="scrolled ? 'h-[64px] border-[#d6dbe0]' : 'h-[72px]'"
+>
+    <nav
+        class="relative mx-auto flex h-full max-w-[1360px] items-center justify-between px-5 sm:px-8 lg:px-10"
+        aria-label="Ana navigasyon"
+    >
+        <a
+            href="#hero"
+            class="inline-flex items-center rounded-[2px] focus-visible:outline-2 focus-visible:outline-[#2674c8] focus-visible:outline-offset-3"
+            aria-label="Mevzun ana sayfa"
+        >
             <x-logo size="30" />
         </a>
 
-        <!-- Center: Desktop Navigation Links (LOCKED §3.8) -->
-        <div class="hidden lg:flex items-center gap-8 text-[14px] font-medium text-[#596579]">
-            <a href="#product" class="hover:text-[#2674c8] transition-colors duration-150 py-1">Ürün</a>
-            <a href="#uyap" class="hover:text-[#2674c8] transition-colors duration-150 py-1">UYAP</a>
-            <a href="#ai" class="hover:text-[#2674c8] transition-colors duration-150 py-1">Yapay Zekâ</a>
-            <a href="#pricing" class="hover:text-[#2674c8] transition-colors duration-150 py-1">Fiyatlandırma</a>
-            <a href="#footer" class="hover:text-[#2674c8] transition-colors duration-150 py-1">İletişim</a>
+        <div class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 lg:flex">
+            <a href="#hero" class="mz-nav-link">Ürün</a>
+            <a href="#uyap" class="mz-nav-link">UYAP</a>
+            <a href="#ai" class="mz-nav-link">Yapay Zekâ</a>
+            <a href="#pricing" class="mz-nav-link">Fiyatlandırma</a>
+            <a href="#footer" class="mz-nav-link">İletişim</a>
         </div>
 
-        <!-- Right: CTA Button (Desktop) -->
-        <div class="hidden lg:flex items-center gap-4">
-            <a href="#early-access" 
-               class="inline-flex items-center justify-center h-[40px] px-4 rounded-[4px] bg-[#2674c8] hover:bg-[#1f66b5] active:bg-[#19579b] text-white text-[14px] font-medium border border-transparent transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-[#2674c8] focus-visible:outline-offset-2">
-                Mevzun'u deneyin
-            </a>
-        </div>
+        <a
+            href="#early-access"
+            class="group hidden h-10 items-center justify-center gap-2 rounded-[4px] border border-transparent bg-[#2674c8] px-4 text-[14px] font-medium text-white transition-[background-color,transform] duration-150 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-px hover:bg-[#1f66b5] active:translate-y-0 active:bg-[#19579b] lg:inline-flex"
+        >
+            <span>Mevzun'u deneyin</span>
+            <x-icon name="arrow-right" size="16" class="transition-transform duration-150 group-hover:translate-x-0.5" />
+        </a>
 
-        <!-- Mobile: Hamburger Button (<1024px) -->
-        <div class="flex items-center lg:hidden">
-            <button type="button" 
-                    @click="mobileMenuOpen = !mobileMenuOpen"
-                    class="min-w-[44px] min-h-[44px] flex items-center justify-center text-[#172033] hover:text-[#2674c8] focus-visible:outline-2 focus-visible:outline-[#2674c8]"
-                    aria-label="Menüyü aç veya kapat"
-                    :aria-expanded="mobileMenuOpen.toString()"
-                    aria-controls="mobile-menu">
-                <template x-if="!mobileMenuOpen">
-                    <x-icon name="menu" size="24" />
-                </template>
-                <template x-if="mobileMenuOpen">
-                    <x-icon name="close" size="24" />
-                </template>
-            </button>
-        </div>
+        <button
+            type="button"
+            @click="mobileMenuOpen = !mobileMenuOpen"
+            class="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-[2px] text-[#172033] transition-colors duration-150 hover:text-[#2674c8] lg:hidden"
+            aria-label="Menüyü aç veya kapat"
+            :aria-expanded="mobileMenuOpen.toString()"
+            aria-controls="mobile-menu"
+        >
+            <template x-if="!mobileMenuOpen">
+                <x-icon name="menu" size="24" />
+            </template>
+            <template x-if="mobileMenuOpen">
+                <x-icon name="close" size="24" />
+            </template>
+        </button>
     </nav>
 
-    <!-- Mobile Menu Panel (LOCKED §3.11: under navbar, white, border-b, no shadow, no overlay) -->
-    <div id="mobile-menu"
-         x-show="mobileMenuOpen"
-         x-cloak
-         @click.outside="mobileMenuOpen = false"
-         @keydown.escape.window="mobileMenuOpen = false"
-         x-transition:enter="transition ease-out duration-180"
-         x-transition:enter-start="opacity-0 -translate-y-1"
-         x-transition:enter-end="opacity-100 translate-y-0"
-         x-transition:leave="transition ease-in duration-140"
-         x-transition:leave-start="opacity-100 translate-y-0"
-         x-transition:leave-end="opacity-0 -translate-y-1"
-         class="lg:hidden w-full bg-white border-b border-[#dfe3e7] px-5 sm:px-8 py-4 flex flex-col gap-3">
-        <a href="#product" @click="mobileMenuOpen = false" class="text-[15px] font-medium text-[#172033] hover:text-[#2674c8] py-2">Ürün</a>
-        <a href="#uyap" @click="mobileMenuOpen = false" class="text-[15px] font-medium text-[#172033] hover:text-[#2674c8] py-2">UYAP</a>
-        <a href="#ai" @click="mobileMenuOpen = false" class="text-[15px] font-medium text-[#172033] hover:text-[#2674c8] py-2">Yapay Zekâ</a>
-        <a href="#pricing" @click="mobileMenuOpen = false" class="text-[15px] font-medium text-[#172033] hover:text-[#2674c8] py-2">Fiyatlandırma</a>
-        <a href="#footer" @click="mobileMenuOpen = false" class="text-[15px] font-medium text-[#172033] hover:text-[#2674c8] py-2">İletişim</a>
-        <div class="h-[1px] bg-[#e7e9ec] my-1"></div>
-        <a href="#early-access" 
-           @click="mobileMenuOpen = false"
-           class="inline-flex items-center justify-center h-[44px] w-full rounded-[4px] bg-[#2674c8] hover:bg-[#1f66b5] text-white text-[15px] font-medium transition-colors">
-            Mevzun'u deneyin
-        </a>
+    <div
+        id="mobile-menu"
+        x-show="mobileMenuOpen"
+        x-cloak
+        @click.outside="mobileMenuOpen = false"
+        @keydown.escape.window="mobileMenuOpen = false"
+        x-transition:enter="transition ease-out duration-180"
+        x-transition:enter-start="opacity-0 -translate-y-1"
+        x-transition:enter-end="opacity-100 translate-y-0"
+        x-transition:leave="transition ease-in duration-140"
+        x-transition:leave-start="opacity-100 translate-y-0"
+        x-transition:leave-end="opacity-0 -translate-y-1"
+        class="border-b border-[#dfe3e7] bg-white px-5 py-4 sm:px-8 lg:hidden"
+    >
+        <div class="mx-auto flex max-w-[1280px] flex-col">
+            <a href="#hero" @click="mobileMenuOpen = false" class="mz-mobile-nav-link">Ürün</a>
+            <a href="#uyap" @click="mobileMenuOpen = false" class="mz-mobile-nav-link">UYAP</a>
+            <a href="#ai" @click="mobileMenuOpen = false" class="mz-mobile-nav-link">Yapay Zekâ</a>
+            <a href="#pricing" @click="mobileMenuOpen = false" class="mz-mobile-nav-link">Fiyatlandırma</a>
+            <a href="#footer" @click="mobileMenuOpen = false" class="mz-mobile-nav-link">İletişim</a>
+            <div class="my-3 h-px bg-[#e7e9ec]"></div>
+            <a
+                href="#early-access"
+                @click="mobileMenuOpen = false"
+                class="inline-flex h-11 w-full items-center justify-center gap-2 rounded-[4px] bg-[#2674c8] px-5 text-[15px] font-medium text-white transition-colors duration-150 hover:bg-[#1f66b5]"
+            >
+                Mevzun'u deneyin
+                <x-icon name="arrow-right" size="16" />
+            </a>
+        </div>
     </div>
 </header>

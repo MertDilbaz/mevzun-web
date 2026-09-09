@@ -13,10 +13,10 @@ $dimensions = match((string)$size) {
 @endphp
 
 <svg {{ $attributes->merge(['class' => "$dimensions shrink-0 stroke-[1.5] text-current inline-block fill-none"]) }}
-     viewBox="0 0 24 24" 
-     stroke="currentColor" 
-     stroke-linecap="round" 
-     stroke-linejoin="round" 
+     viewBox="0 0 24 24"
+     stroke="currentColor"
+     stroke-linecap="round"
+     stroke-linejoin="round"
      aria-hidden="true">
     @switch($name)
         @case('menu')
@@ -68,6 +68,21 @@ $dimensions = match((string)$size) {
 
         @case('shield')
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            @break
+
+        @case('database')
+            <ellipse cx="12" cy="5" rx="8" ry="3" />
+            <path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5" />
+            <path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6" />
+            @break
+
+        @case('bolt')
+            <path d="M13 2L5 14h6l-1 8 8-12h-6l1-8z" />
+            @break
+
+        @case('monitor')
+            <rect x="3" y="4" width="18" height="13" rx="1.5" />
+            <path d="M8 21h8M12 17v4" />
             @break
 
         @case('search')
