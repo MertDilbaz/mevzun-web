@@ -21,7 +21,7 @@
                     </p>
 
                     <div
-                        class="grid w-full max-w-[650px] grid-cols-2 gap-x-5 gap-y-4 border-t border-[color:color-mix(in_srgb,var(--border-subtle)_72%,transparent)] pt-6 text-[13px] font-medium text-[var(--text-secondary)] sm:gap-x-7 xl:grid-cols-4"
+                        class="grid w-full max-w-[650px] grid-cols-2 gap-x-5 gap-y-4 border-t border-[var(--border-subtle)] pt-6 text-[13px] font-medium text-[var(--text-secondary)] sm:gap-x-7 xl:grid-cols-4"
                         data-reveal
                         data-reveal-delay="90"
                     >
