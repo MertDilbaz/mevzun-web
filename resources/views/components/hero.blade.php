@@ -1,15 +1,15 @@
 <section id="hero" class="hero-v2-surface w-full border-b border-[var(--border-subtle)] bg-[var(--bg-app)]">
     <div class="px-5 sm:px-8 lg:px-10">
-        <div class="mx-auto w-full max-w-[1640px] py-10 sm:py-12 lg:py-[54px]">
-            <div class="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,0.39fr)_minmax(0,0.61fr)] lg:gap-12 xl:gap-14">
-                <div class="flex min-w-0 flex-col items-start lg:pr-2 xl:pr-6">
+        <div class="mx-auto w-full max-w-[1680px] py-10 sm:py-12 lg:py-[54px]">
+            <div class="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,0.41fr)_minmax(0,0.59fr)] lg:gap-8 xl:gap-10">
+                <div class="flex min-w-0 flex-col items-start lg:pr-2 xl:pr-4">
                     <h1
-                        class="mb-6 max-w-[650px] text-[34px] font-semibold leading-[1.08] tracking-[-0.035em] text-[var(--text-primary)] sm:text-[42px] lg:text-[44px] xl:text-[48px] 2xl:text-[50px]"
+                        class="mb-6 max-w-[700px] text-[34px] font-semibold leading-[1.08] tracking-[-0.035em] text-[var(--text-primary)] sm:text-[42px] lg:text-[43px] xl:text-[45px] 2xl:text-[46px]"
                         data-reveal
                         data-reveal-delay="0"
                     >
                         <span class="block">Hukuki çalışmalarınız</span>
-                        <span class="block">için tek bir çalışma alanı.</span>
+                        <span class="block whitespace-nowrap">için tek bir çalışma alanı.</span>
                     </h1>
 
                     <p
@@ -21,7 +21,7 @@
                     </p>
 
                     <div
-                        class="grid w-full max-w-[650px] grid-cols-2 gap-x-5 gap-y-4 border-t border-[var(--border-subtle)] pt-6 text-[13px] font-medium text-[var(--text-secondary)] sm:gap-x-7 xl:grid-cols-4"
+                        class="flex w-full max-w-[660px] flex-wrap items-center gap-x-7 gap-y-4 border-t border-[var(--border-subtle)] pt-6 text-[13px] font-medium text-[var(--text-secondary)] xl:flex-nowrap xl:justify-between xl:gap-x-5"
                         data-reveal
                         data-reveal-delay="90"
                     >
@@ -49,7 +49,7 @@
                     data-reveal
                     data-reveal-delay="70"
                 >
-                    <x-hero-ecosystem class="max-w-[880px]" />
+                    <x-hero-ecosystem class="max-w-[940px]" />
                 </div>
             </div>
         </div>
