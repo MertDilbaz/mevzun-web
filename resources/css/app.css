@@ -53,6 +53,9 @@
     --accent-soft: #E5EDF0;
     --archive: #92724F;
 
+    --hero-glow: rgba(49, 88, 107, 0.07);
+    --hero-glow-soft: rgba(49, 88, 107, 0.035);
+
     /* Aliases for backwards compatibility */
     --bg-page: var(--bg-app);
     --surface: var(--bg-surface);
@@ -89,6 +92,9 @@
     --accent-hover: #96BCCB;
     --accent-soft: #25353D;
     --archive: #92724F;
+
+    --hero-glow: rgba(121, 160, 177, 0.105);
+    --hero-glow-soft: rgba(121, 160, 177, 0.045);
 
     --bg-page: var(--bg-app);
     --surface: var(--bg-surface);
@@ -216,8 +222,24 @@ section[id], article[id] {
     transform: translateY(0);
 }
 
+/* Hero V2: subtle atmosphere without shadows. */
+.hero-v2-surface {
+    background-image:
+        radial-gradient(circle at 72% 34%, var(--hero-glow-soft) 0, transparent 33%),
+        linear-gradient(180deg, color-mix(in srgb, var(--bg-app) 97%, var(--accent-soft) 3%) 0%, var(--bg-app) 100%);
+}
+
+.hero-ecosystem-shell {
+    background-color: var(--bg-surface);
+    background-image:
+        radial-gradient(circle at 52% 48%, var(--hero-glow) 0%, transparent 31%),
+        radial-gradient(circle at 72% 30%, var(--hero-glow-soft) 0%, transparent 25%);
+    transition: background-color 200ms var(--ease-mzv), border-color 200ms var(--ease-mzv);
+}
+
 .hero-ecosystem-card {
     opacity: 0;
+    background-color: color-mix(in srgb, var(--bg-elevated) 92%, var(--accent-soft) 8%);
     transform: translate(var(--hero-card-enter-x, 0), var(--hero-card-enter-y, 16px));
     transition:
         opacity 420ms cubic-bezier(0.22, 1, 0.36, 1) var(--hero-card-delay, 0ms),
@@ -234,11 +256,14 @@ section[id], article[id] {
 
 .is-revealed .hero-ecosystem-card:hover {
     transform: translateY(-1px);
-    border-color: var(--accent);
+    border-color: color-mix(in srgb, var(--accent) 58%, var(--border) 42%);
+    background-color: color-mix(in srgb, var(--bg-elevated) 87%, var(--accent-soft) 13%);
 }
 
 .hero-mevzun-hub {
     opacity: 0;
+    background-color: color-mix(in srgb, var(--bg-elevated) 90%, var(--accent-soft) 10%);
+    border-color: color-mix(in srgb, var(--border) 76%, var(--accent) 24%);
     transform: scale(0.96);
     transition:
         opacity 360ms cubic-bezier(0.22, 1, 0.36, 1) 420ms,
@@ -254,7 +279,7 @@ section[id], article[id] {
 
 .hero-ecosystem-path {
     stroke: currentColor;
-    stroke-width: 1.2;
+    stroke-width: 1.15;
     stroke-linecap: round;
     stroke-dasharray: 2 7;
     stroke-dashoffset: 24;
@@ -265,6 +290,19 @@ section[id], article[id] {
     animation: hero-connector-in 1050ms cubic-bezier(0.22, 1, 0.36, 1) 330ms both;
 }
 
+.hero-ecosystem-orbit {
+    stroke: currentColor;
+    stroke-width: 0.85;
+    stroke-linecap: round;
+    stroke-dasharray: 1 10;
+    opacity: 0;
+    transition: opacity 700ms ease-out 520ms;
+}
+
+.is-revealed .hero-ecosystem-orbit {
+    opacity: 0.13;
+}
+
 .hero-ecosystem-node {
     fill: currentColor;
     opacity: 0;
@@ -272,7 +310,17 @@ section[id], article[id] {
 }
 
 .is-revealed .hero-ecosystem-node {
-    opacity: 0.78;
+    opacity: 0.9;
+}
+
+.hero-ecosystem-speck {
+    fill: currentColor;
+    opacity: 0;
+    transition: opacity 360ms ease-out 820ms;
+}
+
+.is-revealed .hero-ecosystem-speck {
+    opacity: 0.35;
 }
 
 @keyframes hero-connector-in {
@@ -281,10 +329,10 @@ section[id], article[id] {
         stroke-dashoffset: 24;
     }
     35% {
-        opacity: 0.22;
+        opacity: 0.28;
     }
     100% {
-        opacity: 0.58;
+        opacity: 0.72;
         stroke-dashoffset: 0;
     }
 }
@@ -325,12 +373,22 @@ section[id], article[id] {
     .hero-ecosystem-card,
     .hero-mevzun-hub,
     .hero-ecosystem-path,
-    .hero-ecosystem-node {
+    .hero-ecosystem-orbit,
+    .hero-ecosystem-node,
+    .hero-ecosystem-speck {
         opacity: 1 !important;
         transform: none !important;
         transition: none !important;
         animation: none !important;
         will-change: auto !important;
         stroke-dashoffset: 0 !important;
+    }
+
+    .hero-ecosystem-orbit {
+        opacity: 0.13 !important;
+    }
+
+    .hero-ecosystem-speck {
+        opacity: 0.35 !important;
     }
 }
