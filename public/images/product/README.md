@@ -1,36 +1,30 @@
-# Mevzun product screenshot assets
+# Mevzun homepage product screenshot assets
 
-Homepage V1 uses only real Mevzun Desktop screenshots supplied by the product owner. Do not draw or generate replacement UI in Blade/CSS.
+Homepage V2 uses only real Mevzun Desktop screenshots supplied by the product owner. Do not draw or generate replacement application UI in Blade/CSS.
 
-## Desktop assets
+## Required assets
 
-Place optimized WebP/AVIF exports here using these exact filenames:
+Place optimized WebP exports in this directory using these exact filenames:
 
-- `home-dark.webp` — Hero / Ana Sayfa, dark theme
-- `uyap-cases-light.webp` — UYAP / Davalar, light theme
-- `ai-dark.webp` — AI working area, dark theme
-- `calendar-light.webp` — Takvim, light theme
-- `workspace-smart-table-light.webp` — Yerel Çalışma Alanı / Smart Table, light theme
+- `home-dark.webp` — Hero / Mevzun Ana Sayfa, dark theme
+- `ai-dark.webp` — Yapay Zekâ çalışma alanı, dark theme
 
-Until an asset exists, `ProductFrame` keeps the final-ratio placeholder defined by the LOCKED homepage spec.
+Until an asset exists, `ProductFrame` keeps the final-ratio placeholder used by the homepage layout.
 
 ## Optional mobile crops
 
-When the full desktop screenshot is unreadable on a narrow viewport, provide a deliberate crop with the matching `-mobile` filename:
+If the full desktop screenshot becomes unreadable on narrow viewports, provide deliberate crops rather than relying on aggressive CSS cropping:
 
 - `home-dark-mobile.webp`
-- `uyap-cases-light-mobile.webp`
 - `ai-dark-mobile.webp`
-- `calendar-light-mobile.webp`
-- `workspace-smart-table-light-mobile.webp`
 
-`ProductFrame` automatically uses the mobile source below 768px when that file exists, otherwise it falls back to the desktop asset.
+Mobile crops are optional and should be added only after the real screenshots are reviewed.
 
 ## Capture rules
 
-- Use synthetic/demo data only; no real client, case or personal data.
-- Keep a consistent application window ratio and density across the showcase set.
+- Use synthetic/demo data only; never include real client, case, identity or personal data.
+- Keep application density representative of real use; avoid empty screens.
 - Do not include debug/devtools UI.
-- Prefer an intentional crop over `object-cover` when important product chrome would be cut.
-- Preserve UI text quality; avoid aggressive compression.
-- Product screenshots remain shadow-free and are shown with a 1px frame and low radius on the website.
+- Capture the application frontally; no device mockup, perspective distortion or generated chrome.
+- Preserve text quality; avoid aggressive compression.
+- Website presentation remains shadow-free with a 1px frame and low radius.
