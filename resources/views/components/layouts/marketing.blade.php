@@ -25,12 +25,25 @@
     <link rel="icon" type="image/png" media="(prefers-color-scheme: light)" href="/images/brand/mevzun-icon-dark-128.png">
     <link rel="icon" type="image/png" media="(prefers-color-scheme: dark)" href="/images/brand/mevzun-icon-light-128.png">
 
-    <script>document.documentElement.classList.add('js');</script>
+    <script>
+        document.documentElement.classList.add('js');
+        (function() {
+            try {
+                const storedTheme = localStorage.getItem('theme');
+                const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (storedTheme === 'dark' || (!storedTheme && systemPrefersDark)) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+            } catch (_) {}
+        })();
+    </script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 </head>
-<body class="min-h-screen bg-white font-sans text-[#172033] antialiased selection:bg-[#eaf3fb] selection:text-[#216bb9]">
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-50 focus:rounded-[4px] focus:bg-[#2674c8] focus:px-4 focus:py-2 focus:text-white focus:outline-none">
+<body class="min-h-screen bg-[var(--bg-app)] font-sans text-[var(--text-primary)] antialiased selection:bg-[var(--accent-soft)] selection:text-[var(--accent)] transition-colors duration-200">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-50 focus:rounded-[4px] focus:bg-[var(--accent)] focus:px-4 focus:py-2 focus:text-white focus:outline-none">
         Ana içeriğe geç
     </a>
 

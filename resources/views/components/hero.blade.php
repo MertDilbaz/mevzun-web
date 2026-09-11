@@ -1,10 +1,10 @@
-<section id="hero" class="w-full bg-white">
+<section id="hero" class="w-full bg-[var(--bg-app)]">
     <div class="px-5 sm:px-8 lg:px-10">
-        <div class="mx-auto flex min-h-[calc(100svh-72px)] w-full max-w-[1440px] items-center py-12 sm:py-14 lg:py-12">
-            <div class="grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(0,0.46fr)_minmax(0,0.54fr)] lg:gap-14 xl:gap-16">
+        <div class="mx-auto flex min-h-[calc(100svh-80px)] w-full max-w-[1440px] items-center py-10 sm:py-12 lg:py-10">
+            <div class="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,0.35fr)_minmax(0,0.65fr)] lg:gap-10 xl:gap-12">
                 <div class="flex min-w-0 flex-col items-start">
                     <span
-                        class="mb-4 select-none text-[12px] font-semibold uppercase tracking-[0.14em] text-[#2674c8]"
+                        class="mb-3 select-none text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--accent)]"
                         data-reveal
                         data-reveal-delay="0"
                     >
@@ -12,7 +12,7 @@
                     </span>
 
                     <h1
-                        class="mb-6 max-w-[680px] text-[38px] font-semibold leading-[1.04] tracking-[-0.04em] text-[#172033] sm:text-[48px] lg:text-[52px] xl:text-[54px] 2xl:text-[58px]"
+                        class="mb-5 max-w-[540px] text-[34px] font-semibold leading-[1.08] tracking-[-0.035em] text-[var(--text-primary)] sm:text-[42px] lg:text-[38px] xl:text-[44px] 2xl:text-[48px]"
                         data-reveal
                         data-reveal-delay="45"
                     >
@@ -21,7 +21,7 @@
                     </h1>
 
                     <p
-                        class="mb-8 max-w-[620px] text-[17px] font-normal leading-[1.6] text-[#596579] sm:text-[18px]"
+                        class="mb-7 max-w-[480px] text-[15px] font-normal leading-[1.6] text-[var(--text-secondary)] sm:text-[16px]"
                         data-reveal
                         data-reveal-delay="90"
                     >
@@ -30,7 +30,7 @@
 
                     <a
                         href="#ai"
-                        class="group mb-10 inline-flex h-[50px] items-center justify-center gap-2.5 rounded-[4px] border border-transparent bg-[#2674c8] px-7 text-[15px] font-medium text-white transition-[background-color,transform] duration-150 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-px hover:bg-[#1f66b5] active:translate-y-0 active:bg-[#19579b]"
+                        class="group mb-8 inline-flex h-[48px] items-center justify-center gap-2.5 rounded-[4px] border border-transparent bg-[var(--accent)] px-6 text-[15px] font-medium text-white transition-[background-color,transform] duration-150 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-px hover:bg-[var(--accent-hover)] active:translate-y-0 active:bg-[var(--accent-hover)]"
                         data-reveal
                         data-reveal-delay="135"
                     >
@@ -39,24 +39,24 @@
                     </a>
 
                     <div
-                        class="grid w-full grid-cols-2 gap-x-5 gap-y-4 border-t border-[#e7e9ec] pt-6 text-[12px] font-medium text-[#596579] sm:gap-x-6 xl:flex xl:flex-nowrap xl:items-center xl:gap-x-5"
+                        class="grid w-full grid-cols-2 gap-x-4 gap-y-3.5 border-t border-[var(--border-subtle)] pt-5 text-[12px] font-medium text-[var(--text-secondary)] sm:gap-x-6"
                         data-reveal
                         data-reveal-delay="180"
                     >
                         <div class="flex items-center gap-2 whitespace-nowrap">
-                            <x-icon name="link" size="16" class="text-[#2674c8]" />
+                            <x-icon name="link" size="16" class="text-[var(--accent)]" />
                             <span>UYAP entegrasyonu</span>
                         </div>
                         <div class="flex items-center gap-2 whitespace-nowrap">
-                            <x-icon name="ai" size="16" class="text-[#2674c8]" />
+                            <x-icon name="ai" size="16" class="text-[var(--accent)]" />
                             <span>Yapay zekâ desteği</span>
                         </div>
                         <div class="flex items-center gap-2 whitespace-nowrap">
-                            <x-icon name="shield" size="16" class="text-[#2674c8]" />
+                            <x-icon name="shield" size="16" class="text-[var(--accent)]" />
                             <span>Güvenli çalışma alanı</span>
                         </div>
                         <div class="flex items-center gap-2 whitespace-nowrap">
-                            <x-icon name="monitor" size="16" class="text-[#2674c8]" />
+                            <x-icon name="monitor" size="16" class="text-[var(--accent)]" />
                             <span>Masaüstü uygulama</span>
                         </div>
                     </div>
@@ -68,12 +68,13 @@
                     data-reveal-delay="95"
                 >
                     <x-product-frame
-                        src="images/product/home-dark.webp"
+                        src="images/product/home-light.webp"
+                        light-src="images/product/home-light.webp"
+                        dark-src="images/product/home-dark.webp"
                         alt="Mevzun masaüstü uygulamasında duruşmalar, görevler, son güncellenen dosyalar ve hızlı erişim alanlarının bulunduğu Ana Sayfa ekranı."
-                        ratio="16/10"
-                        :dark="true"
+                        ratio="1914/1004"
                         :priority="true"
-                        class="w-full max-w-none transition-[transform,border-color] duration-200 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:border-[#3a454d]"
+                        class="w-full max-w-none transition-[transform,border-color] duration-200 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-0.5 hover:border-[var(--accent)] dark:hover:border-[#3a454d]"
                     />
                 </div>
             </div>

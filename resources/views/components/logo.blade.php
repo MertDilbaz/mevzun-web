@@ -1,34 +1,51 @@
 @props([
-    'size' => 30,
-    'variant' => 'light',
-    'showDescriptor' => true,
+    'size' => null,
+    'height' => 34,
+    'variant' => 'auto',
+    'alt' => 'Mevzun',
 ])
 
 @php
-    $isDarkSurface = $variant === 'dark';
-    $icon = $isDarkSurface
-        ? '/images/brand/mevzun-icon-light-128.png'
-        : '/images/brand/mevzun-icon-dark-128.png';
-
-    $brandText = $isDarkSurface ? 'text-[#f5f7f8]' : 'text-[#172033]';
-    $descriptorText = $isDarkSurface ? 'text-[#a9b2ba]' : 'text-[#8791a0]';
+    $h = (int) ($size ?? $height);
+    // Aspect ratio: 759 / 302 ≈ 2.5132
+    $w = (int) round($h * (759 / 302));
 @endphp
 
-<span {{ $attributes->merge(['class' => 'inline-flex items-center gap-2.5 select-none']) }}>
-    <img
-        src="{{ $icon }}"
-        alt=""
-        width="{{ $size }}"
-        height="{{ $size }}"
-        aria-hidden="true"
-        class="block shrink-0"
-        style="width: {{ $size }}px; height: {{ $size }}px;"
-    />
-
-    <span class="flex flex-col leading-none">
-        <span class="text-[15px] font-semibold tracking-[-0.01em] {{ $brandText }}">Mevzun</span>
-        @if ($showDescriptor)
-            <span class="mt-[2px] text-[11px] font-normal {{ $descriptorText }}">Hukuk Çalışma Alanı</span>
-        @endif
-    </span>
+<span {{ $attributes->merge(['class' => 'inline-flex items-center select-none']) }}>
+    @if ($variant === 'dark')
+        <img
+            src="/images/brand/mevzun-logo-dark.png"
+            alt="{{ $alt }}"
+            width="{{ $w }}"
+            height="{{ $h }}"
+            class="block shrink-0 object-contain"
+            style="height: {{ $h }}px; width: {{ $w }}px; aspect-ratio: 759 / 302;"
+        />
+    @elseif ($variant === 'light')
+        <img
+            src="/images/brand/mevzun-logo-light.png"
+            alt="{{ $alt }}"
+            width="{{ $w }}"
+            height="{{ $h }}"
+            class="block shrink-0 object-contain"
+            style="height: {{ $h }}px; width: {{ $w }}px; aspect-ratio: 759 / 302;"
+        />
+    @else
+        <img
+            src="/images/brand/mevzun-logo-light.png"
+            alt="{{ $alt }}"
+            width="{{ $w }}"
+            height="{{ $h }}"
+            class="block dark:hidden shrink-0 object-contain"
+            style="height: {{ $h }}px; width: {{ $w }}px; aspect-ratio: 759 / 302;"
+        />
+        <img
+            src="/images/brand/mevzun-logo-dark.png"
+            alt="{{ $alt }}"
+            width="{{ $w }}"
+            height="{{ $h }}"
+            class="hidden dark:block shrink-0 object-contain"
+            style="height: {{ $h }}px; width: {{ $w }}px; aspect-ratio: 759 / 302;"
+        />
+    @endif
 </span>

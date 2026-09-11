@@ -1,4 +1,4 @@
-<section id="features" class="w-full border-b border-[#e7e9ec] bg-white py-10 sm:py-12 lg:py-14">
+<section id="features" class="w-full border-b border-[var(--border-subtle)] bg-[var(--bg-surface)] py-10 sm:py-12 lg:py-14">
     <div class="mx-auto max-w-[1360px] px-5 sm:px-8 lg:px-10">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             @php
@@ -40,12 +40,12 @@
                     <x-icon
                         :name="$item['icon']"
                         size="32"
-                        class="mb-5 text-[#2674c8] transition-[color,transform] duration-200 ease-[cubic-bezier(0.2,0,0,1)] group-hover:-translate-y-0.5 group-hover:text-[#1f66b5]"
+                        class="mb-5 text-[var(--accent)] transition-[color,transform] duration-200 ease-[cubic-bezier(0.2,0,0,1)] group-hover:-translate-y-0.5 group-hover:text-[var(--accent-hover)]"
                     />
-                    <h3 class="mb-2 text-[17px] font-semibold tracking-[-0.015em] text-[#172033] transition-colors duration-150 group-hover:text-[#216bb9] sm:text-[18px]">
+                    <h3 class="mb-2 text-[17px] font-semibold tracking-[-0.015em] text-[var(--text-primary)] transition-colors duration-150 group-hover:text-[var(--accent)] sm:text-[18px]">
                         {{ $item['title'] }}
                     </h3>
-                    <p class="max-w-[260px] text-[14px] leading-[1.55] text-[#6a7485]">
+                    <p class="max-w-[260px] text-[14px] leading-[1.55] text-[var(--text-secondary)]">
                         {{ $item['body'] }}
                     </p>
                 </article>

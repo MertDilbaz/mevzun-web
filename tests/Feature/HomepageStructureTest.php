@@ -76,6 +76,33 @@ class HomepageStructureTest extends TestCase
         $response->assertSee('Ana içeriğe geç');
         $response->assertSee('href="#main-content"', false);
         $response->assertSee('images/product/home-dark.webp', false);
+        $response->assertSee('images/product/home-light.webp', false);
         $response->assertSee('images/product/ai-dark.webp', false);
+    }
+
+    public function test_homepage_has_brand_logos_and_theme_toggle(): void
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+        $response->assertSee('/images/brand/mevzun-logo-light.png', false);
+        $response->assertSee('/images/brand/mevzun-logo-dark.png', false);
+        $response->assertSee('Açık temaya geç');
+        $response->assertSee('Koyu temaya geç');
+    }
+
+    public function test_homepage_navbar_has_scaled_elements_and_nav_links(): void
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+        $response->assertSee('h-[80px]', false);
+        $response->assertSee('h-[70px]', false);
+        $response->assertSee('mz-nav-link', false);
+        $response->assertSee('Ürün');
+        $response->assertSee('UYAP');
+        $response->assertSee('Yapay Zekâ');
+        $response->assertSee('Fiyatlandırma');
+        $response->assertSee('İletişim');
     }
 }
