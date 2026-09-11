@@ -26,6 +26,8 @@ jobs:
       - name: Prepare Laravel environment
         run: |
           cp .env.example .env
+          touch database/database.sqlite
+          printf '\nSESSION_DRIVER=file\nCACHE_STORE=file\nQUEUE_CONNECTION=sync\n' >> .env
           php artisan key:generate
 
       - name: Setup Node
