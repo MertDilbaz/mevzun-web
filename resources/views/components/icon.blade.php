@@ -13,10 +13,10 @@ $dimensions = match((string)$size) {
 @endphp
 
 <svg {{ $attributes->merge(['class' => "$dimensions shrink-0 stroke-[1.5] text-current inline-block fill-none"]) }}
-     viewBox="0 0 24 24" 
-     stroke="currentColor" 
-     stroke-linecap="round" 
-     stroke-linejoin="round" 
+     viewBox="0 0 24 24"
+     stroke="currentColor"
+     stroke-linecap="round"
+     stroke-linejoin="round"
      aria-hidden="true">
     @switch($name)
         @case('menu')
@@ -56,6 +56,11 @@ $dimensions = match((string)$size) {
             <path d="M12 3v3m0 12v3M3 12h3m12 0h3M6.34 6.34l2.12 2.12m7.08 7.08l2.12 2.12M6.34 17.66l2.12-2.12m7.08-7.08l2.12-2.12M9 12a3 3 0 106 0 3 3 0 00-6 0z" />
             @break
 
+        @case('sparkle')
+            <path d="M10.8 3.2c.75 3.53 2.67 5.45 6.2 6.2-3.53.75-5.45 2.67-6.2 6.2-.75-3.53-2.67-5.45-6.2-6.2 3.53-.75 5.45-2.67 6.2-6.2Z" />
+            <path d="M18.2 15.2c.35 1.63 1.25 2.53 2.88 2.88-1.63.35-2.53 1.25-2.88 2.88-.35-1.63-1.25-2.53-2.88-2.88 1.63-.35 2.53-1.25 2.88-2.88Z" />
+            @break
+
         @case('table')
             <rect x="3" y="3" width="18" height="18" rx="2" />
             <path d="M3 9h18M3 15h18M9 3v18" />
@@ -86,6 +91,17 @@ $dimensions = match((string)$size) {
             <line x1="16" y1="13" x2="8" y2="13" />
             <line x1="16" y1="17" x2="8" y2="17" />
             <line x1="10" y1="9" x2="8" y2="9" />
+            @break
+
+        @case('users')
+            <path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+            @break
+
+        @case('desktop')
+            <rect x="3" y="4" width="18" height="13" rx="1.5" />
+            <path d="M8 21h8M12 17v4" />
             @break
 
         @default
