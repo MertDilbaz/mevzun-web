@@ -29,9 +29,13 @@ class HomepageStructureTest extends TestCase
         $response = $this->get('/');
         $response->assertStatus(200);
 
-        $response->assertSee('AVUKATLAR İÇİN');
-        $response->assertSee('Hukuki çalışmalarınız için');
-        $response->assertSee('tek bir çalışma alanı.');
+        $response->assertSee('Hukuki çalışmalarınız için tek bir çalışma alanı.');
+        $response->assertSee('Bütün ihtiyaçlarınız tek yerde.');
+        $response->assertSee('UYAP davalarınız');
+        $response->assertSee('Yapay Zekâ asistanınız');
+        $response->assertSee('Yerel çalışma dosyalarınız');
+        $response->assertSee('Takvim ve görevler');
+        $response->assertSee('Müvekkiller ve duruşmalar');
         $response->assertSee('02 / YAPAY ZEKÂ');
         $response->assertSee('Yapay zekâ, dava bağlamını anlar.');
         $response->assertSee('Tüm dosyalar tek yerde');
@@ -44,11 +48,13 @@ class HomepageStructureTest extends TestCase
         $response->assertSee('₺1.500');
     }
 
-    public function test_homepage_uses_one_h1_and_removes_old_v1_copy(): void
+    public function test_homepage_uses_one_h1_and_removes_superseded_hero_elements(): void
     {
         $content = $this->get('/')->getContent();
 
         $this->assertSame(1, substr_count($content, '<h1'));
+        $this->assertStringNotContainsString('AVUKATLAR İÇİN', $content);
+        $this->assertStringNotContainsString("Mevzun'u keşfet", $content);
         $this->assertStringNotContainsString('Nasıl çalışır?', $content);
         $this->assertStringNotContainsString("Dava dosyanız UYAP'ta, notlarınız Excel'de", $content);
         $this->assertStringNotContainsString('Gününüzü, dosyalarınızla birlikte yönetin.', $content);
@@ -75,8 +81,6 @@ class HomepageStructureTest extends TestCase
 
         $response->assertSee('Ana içeriğe geç');
         $response->assertSee('href="#main-content"', false);
-        $response->assertSee('images/product/home-dark.webp', false);
-        $response->assertSee('images/product/home-light.webp', false);
         $response->assertSee('images/product/ai-dark.webp', false);
     }
 
@@ -87,6 +91,8 @@ class HomepageStructureTest extends TestCase
         $response->assertStatus(200);
         $response->assertSee('/images/brand/mevzun-logo-light.png', false);
         $response->assertSee('/images/brand/mevzun-logo-dark.png', false);
+        $response->assertSee('/images/brand/mevzun-icon-light-128.png', false);
+        $response->assertSee('/images/brand/mevzun-icon-dark-128.png', false);
         $response->assertSee('Açık temaya geç');
         $response->assertSee('Koyu temaya geç');
     }
