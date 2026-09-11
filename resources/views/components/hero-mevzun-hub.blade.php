@@ -1,19 +1,19 @@
-<div {{ $attributes->class(['hero-mevzun-hub min-w-[92px] rounded-[6px] border border-[var(--border)] bg-[var(--bg-elevated)] px-4 py-3 text-center']) }}>
-    <div class="mx-auto flex h-[42px] w-[42px] items-center justify-center" aria-hidden="true">
-        {{-- Icon assets are named by artwork color: dark artwork for light UI, light artwork for dark UI. --}}
+<div {{ $attributes->class(['hero-mevzun-hub min-w-[94px] rounded-[6px] border border-[var(--border)] bg-[var(--bg-elevated)] px-4 py-3 text-center']) }}>
+    {{-- Reuse the exact logo artwork already proven in the navbar, cropping to its symbol. --}}
+    <div class="mx-auto h-[44px] w-[44px] overflow-hidden" aria-hidden="true">
         <img
-            src="/images/brand/mevzun-icon-dark-128.png"
+            src="/images/brand/mevzun-logo-light.png"
             alt=""
-            width="42"
-            height="42"
-            class="block h-[42px] w-[42px] object-contain dark:hidden"
+            width="111"
+            height="44"
+            class="block h-[44px] w-auto max-w-none object-contain object-left dark:hidden"
         />
         <img
-            src="/images/brand/mevzun-icon-light-128.png"
+            src="/images/brand/mevzun-logo-dark.png"
             alt=""
-            width="42"
-            height="42"
-            class="hidden h-[42px] w-[42px] object-contain dark:block"
+            width="111"
+            height="44"
+            class="hidden h-[44px] w-auto max-w-none object-contain object-left dark:block"
         />
     </div>
     <div class="mt-1.5 text-[16px] font-semibold tracking-[-0.015em] text-[var(--text-primary)]">Mevzun</div>
