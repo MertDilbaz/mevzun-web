@@ -22,39 +22,43 @@ class HomepageStructureTest extends TestCase
         $response->assertSee('id="main-content"', false);
     }
 
-    public function test_homepage_has_exact_locked_headlines(): void
+    public function test_homepage_has_required_headlines(): void
     {
         $response = $this->get('/');
         $response->assertStatus(200);
 
-        // H1 (LOCKED §4.7)
         $response->assertSee('Hukuki çalışmalarınız için tek bir çalışma alanı.');
-
-        // Value Headline (LOCKED §5.5)
+        $response->assertSee('Bütün ihtiyaçlarınız tek yerde.');
         $response->assertSee("Dava dosyanız UYAP'ta, notlarınız Excel'de, takviminiz başka yerde olmak zorunda değil.", false);
-
-        // UYAP Headline (LOCKED §6.7)
         $response->assertSee('UYAP dosyalarınız çalışma alanınızda.');
-
-        // AI Headline (LOCKED §7.3)
         $response->assertSee('Yapay zekâ, dava bağlamını bilir.');
-
-        // Takvim Headline (LOCKED §8.7)
         $response->assertSee('Gününüzü, dosyalarınızla birlikte yönetin.');
-
-        // Workspace Headline (LOCKED §8.11)
         $response->assertSee('Verilerinizi size özel şekilde yönetin.');
-
-        // Pricing Headline (LOCKED §9.5)
         $response->assertSee('Şeffaf, sade, tek paket.');
     }
 
-    public function test_homepage_has_exact_locked_eyebrows_and_labels(): void
+    public function test_homepage_has_revised_hero_ecosystem(): void
     {
         $response = $this->get('/');
         $response->assertStatus(200);
 
-        $response->assertSee('AVUKATLAR İÇİN');
+        $response->assertDontSee('AVUKATLAR İÇİN');
+        $response->assertDontSee("Mevzun'u keşfet");
+
+        $response->assertSee('UYAP davalarınız');
+        $response->assertSee('Yapay Zekâ asistanınız');
+        $response->assertSee('Yerel çalışma dosyalarınız');
+        $response->assertSee('Takvim ve görevler');
+        $response->assertSee('Müvekkiller ve duruşmalar');
+        $response->assertSee('Daha verimli');
+        $response->assertSee('bir hukuk pratiği');
+    }
+
+    public function test_homepage_has_required_section_labels(): void
+    {
+        $response = $this->get('/');
+        $response->assertStatus(200);
+
         $response->assertSee('ÇALIŞMA DÜZENİ');
         $response->assertSee('01 / UYAP ENTEGRASYONU');
         $response->assertSee('02 / YAPAY ZEKÂ');
@@ -68,7 +72,6 @@ class HomepageStructureTest extends TestCase
     {
         $content = $this->get('/')->getContent();
 
-        // Banned buzzwords
         $this->assertStringNotContainsString('sınırsız AI', $content);
         $this->assertStringNotContainsString('Most Popular', $content);
         $this->assertStringNotContainsString('En Popüler', $content);
