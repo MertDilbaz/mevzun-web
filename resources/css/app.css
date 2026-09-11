@@ -140,6 +140,77 @@ section[id] {
     transform: translateY(0);
 }
 
+/* Hero V2 ecosystem: editable cards enter the Mevzun surface as one staged composition. */
+.hero-ecosystem-card {
+    opacity: 0;
+    transform: translate(var(--hero-card-enter-x, 0), var(--hero-card-enter-y, 16px));
+    transition:
+        opacity 420ms cubic-bezier(0.22, 1, 0.36, 1) var(--hero-card-delay, 0ms),
+        transform 420ms cubic-bezier(0.22, 1, 0.36, 1) var(--hero-card-delay, 0ms),
+        border-color 160ms var(--ease-mzv);
+    will-change: transform, opacity;
+}
+
+.is-revealed .hero-ecosystem-card {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.is-revealed .hero-ecosystem-card:hover {
+    transform: translateY(-1px);
+    border-color: #3b4a53;
+}
+
+.hero-mevzun-hub {
+    opacity: 0;
+    transform: scale(0.96);
+    transition:
+        opacity 360ms cubic-bezier(0.22, 1, 0.36, 1) 420ms,
+        transform 360ms cubic-bezier(0.22, 1, 0.36, 1) 420ms;
+}
+
+.is-revealed .hero-mevzun-hub {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.hero-ecosystem-path {
+    stroke: #35576a;
+    stroke-width: 1.2;
+    stroke-linecap: round;
+    stroke-dasharray: 2 7;
+    stroke-dashoffset: 24;
+    opacity: 0;
+}
+
+.is-revealed .hero-ecosystem-path {
+    animation: hero-connector-in 1050ms cubic-bezier(0.22, 1, 0.36, 1) 330ms both;
+}
+
+.hero-ecosystem-node {
+    fill: #77b9d8;
+    opacity: 0;
+    transition: opacity 260ms ease-out 720ms;
+}
+
+.is-revealed .hero-ecosystem-node {
+    opacity: 0.8;
+}
+
+@keyframes hero-connector-in {
+    0% {
+        opacity: 0;
+        stroke-dashoffset: 24;
+    }
+    35% {
+        opacity: 0.25;
+    }
+    100% {
+        opacity: 0.62;
+        stroke-dashoffset: 0;
+    }
+}
+
 /* Reduced Motion Support (LOCKED §11.16 & §12.10) */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -154,5 +225,16 @@ section[id] {
         opacity: 1 !important;
         transform: none !important;
         transition: none !important;
+    }
+
+    .hero-ecosystem-card,
+    .hero-mevzun-hub,
+    .hero-ecosystem-path,
+    .hero-ecosystem-node {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        transition: none !important;
+        stroke-dashoffset: 0 !important;
     }
 }
