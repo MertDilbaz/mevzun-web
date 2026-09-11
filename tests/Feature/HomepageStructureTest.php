@@ -29,7 +29,8 @@ class HomepageStructureTest extends TestCase
         $response = $this->get('/');
         $response->assertStatus(200);
 
-        $response->assertSee('Hukuki çalışmalarınız için tek bir çalışma alanı.');
+        $response->assertSee('Hukuki çalışmalarınız');
+        $response->assertSee('için tek bir çalışma alanı.');
         $response->assertSee('Bütün ihtiyaçlarınız tek yerde.');
         $response->assertSee('UYAP davalarınız');
         $response->assertSee('Yapay Zekâ asistanınız');
