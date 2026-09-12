@@ -1,79 +1,86 @@
-<section id="pricing" class="w-full bg-[#f7f8fa] py-24 lg:py-32 border-b border-[#e7e9ec]">
-    <div class="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-10" data-reveal>
-        
-        <!-- 3 Horizontal Blocks (LOCKED §9.3: Intro / Plan Yüzeyi / Early Access) -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
-            
-            <!-- Block 1: Pricing Intro (4 cols) -->
-            <div class="lg:col-span-4 flex flex-col items-start pr-0 lg:pr-4">
-                <span class="text-[12px] font-semibold text-[#2674c8] uppercase tracking-[0.12em] mb-4 select-none">
+<section id="pricing" class="w-full border-b border-[var(--border)] bg-[var(--bg-subtle)] py-16 lg:py-20">
+    <div class="mx-auto max-w-[1360px] px-5 sm:px-8 lg:px-10">
+        <div class="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-12 lg:gap-8">
+            <div class="flex flex-col items-start justify-center lg:col-span-4 lg:pr-5" data-reveal>
+                <span class="mb-4 select-none text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--accent)]">
                     FİYATLANDIRMA
                 </span>
 
-                <h2 class="text-[30px] sm:text-[36px] font-semibold text-[#172033] tracking-[-0.02em] leading-[1.15] mb-4">
+                <h2 class="mb-4 text-[32px] font-semibold leading-[1.12] tracking-[-0.025em] text-[var(--text-primary)] sm:text-[38px]">
                     Şeffaf, sade, tek paket.
                 </h2>
 
-                <p class="text-[16px] text-[#596579] font-normal leading-[1.6]">
-                    Tüm temel Mevzun özellikleri tek abonelik altında. Karmaşık paketler veya özellik kilitleri olmadan.
+                <p class="max-w-[430px] text-[15px] leading-[1.65] text-[var(--text-secondary)] sm:text-[16px]">
+                    Tüm temel Mevzun özellikleri tek plan altında. Karmaşık paketler ve gereksiz özellik katmanları olmadan.
                 </p>
             </div>
 
-            <!-- Block 2: Plan Alanı / Plan Yüzeyi (4 cols) (LOCKED §9.6 – §9.11) -->
-            <div class="lg:col-span-4 bg-white border border-[#dfe3e7] rounded-[4px] p-6 sm:p-8 flex flex-col items-start w-full">
-                <span class="text-[14px] font-semibold text-[#2674c8] mb-2 tracking-tight">
-                    Mevzun Pro
-                </span>
-
-                <div class="flex items-baseline gap-1.5 mb-6">
-                    <span class="text-[40px] sm:text-[44px] font-semibold text-[#172033] tracking-tight leading-none">
-                        ₺1.500
-                    </span>
-                    <span class="text-[16px] text-[#596579] font-normal">
-                        / ay
-                    </span>
+            <div
+                class="flex w-full flex-col rounded-[4px] border border-[var(--border)] bg-[var(--bg-elevated)] p-6 transition-[border-color,transform] duration-200 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-px hover:border-[var(--accent)] sm:p-7 lg:col-span-4"
+                data-reveal
+                data-reveal-delay="55"
+            >
+                <div class="mb-5 flex items-start justify-between gap-4">
+                    <div>
+                        <h3 class="text-[17px] font-semibold tracking-[-0.015em] text-[var(--text-primary)]">Mevzun Pro</h3>
+                        <p class="mt-1 text-[12px] text-[var(--text-muted)]">Tüm temel özellikler dahil</p>
+                    </div>
                 </div>
 
-                <div class="w-full h-[1px] bg-[#e7e9ec] mb-6"></div>
+                <div class="mb-5 flex items-end gap-2">
+                    <span class="text-[42px] font-semibold leading-none tracking-[-0.035em] text-[var(--text-primary)]">
+                        {{ config('marketing.pricing.monthly', '₺1.500') }}
+                    </span>
+                    <span class="pb-1 text-[15px] text-[var(--text-secondary)]">/ ay</span>
+                </div>
 
-                <ul class="space-y-3 w-full text-[14px] sm:text-[15px] text-[#596579]">
-                    <li class="flex items-center gap-3">
-                        <x-icon name="check" size="18" class="text-[#2674c8] shrink-0" />
-                        <span>UYAP dosya yönetimi</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <x-icon name="check" size="18" class="text-[#2674c8] shrink-0" />
-                        <span>Takvim, görev ve çalışma araçları</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <x-icon name="check" size="18" class="text-[#2674c8] shrink-0" />
-                        <span>Mevzun AI özellikleri</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <x-icon name="check" size="18" class="text-[#2674c8] shrink-0" />
-                        <span>Yerel Çalışma Alanı</span>
-                    </li>
+                <div class="mb-5 h-px w-full bg-[var(--border-subtle)]"></div>
+
+                <ul class="mb-6 grid gap-2.5 text-[14px] text-[var(--text-secondary)]">
+                    @foreach ([
+                        'UYAP dosya yönetimi',
+                        'Takvim ve çalışma araçları',
+                        'Yapay zekâ özellikleri',
+                        'Yerel Çalışma Alanı',
+                    ] as $feature)
+                        <li class="flex items-center gap-2.5">
+                            <x-icon name="check" size="18" class="text-[var(--accent)]" />
+                            <span>{{ $feature }}</span>
+                        </li>
+                    @endforeach
                 </ul>
+
+                <a
+                    href="#early-access"
+                    class="group mt-auto inline-flex h-11 w-full items-center justify-center gap-2 rounded-[4px] bg-[var(--accent)] px-5 text-[14px] font-medium text-white transition-[background-color,transform] duration-150 hover:-translate-y-px hover:bg-[var(--accent-hover)] active:translate-y-0 active:bg-[var(--accent-hover)]"
+                >
+                    Mevzun'u deneyin
+                    <x-icon name="arrow-right" size="16" class="transition-transform duration-150 group-hover:translate-x-0.5" />
+                </a>
             </div>
 
-            <!-- Block 3: Early Access (4 cols) (LOCKED §9.13 – §9.20) -->
-            <div id="early-access" class="lg:col-span-4 bg-white border border-[#dfe3e7] rounded-[4px] p-6 sm:p-8 flex flex-col items-start w-full scroll-mt-28">
-                <span class="text-[12px] font-semibold text-[#2674c8] uppercase tracking-[0.12em] mb-2 select-none">
+            <div
+                id="early-access"
+                class="flex w-full scroll-mt-28 flex-col rounded-[4px] border border-[var(--border)] bg-[var(--bg-elevated)] p-6 transition-[border-color,transform] duration-200 ease-[cubic-bezier(0.2,0,0,1)] hover:-translate-y-px hover:border-[var(--accent)] sm:p-7 lg:col-span-4"
+                data-reveal
+                data-reveal-delay="110"
+            >
+                <span class="mb-3 select-none text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--accent)]">
                     ERKEN ERİŞİM
                 </span>
 
-                <h3 class="text-[20px] sm:text-[22px] font-semibold text-[#172033] tracking-tight leading-snug mb-3">
-                    Mevzun hazır olduğunda haberdar olun.
+                <h3 class="mb-3 max-w-[330px] text-[22px] font-semibold leading-[1.15] tracking-[-0.02em] text-[var(--text-primary)]">
+                    Mevzun hazır olduğunda haber alın.
                 </h3>
 
-                <p class="text-[14px] sm:text-[15px] text-[#596579] font-normal leading-relaxed mb-6">
+                <p class="mb-6 max-w-[360px] text-[14px] leading-[1.6] text-[var(--text-secondary)] sm:text-[15px]">
                     Erken erişim ve ürün duyuruları için e-posta adresinizi bırakın.
                 </p>
 
-                <livewire:early-access-form />
+                <div class="mt-auto w-full">
+                    <livewire:early-access-form />
+                </div>
             </div>
-
         </div>
-
     </div>
 </section>
